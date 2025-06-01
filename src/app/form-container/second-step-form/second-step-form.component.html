@@ -1,0 +1,45 @@
+<div class="row mt-3" [formGroup]="addressGroup">
+  <div formArrayName="addressLines" class="col-12 mb-3">
+    @for (address of addressLinesArray.controls; track $index) {
+    <mat-form-field class="col-12 mb-2">
+      <mat-label>Address Line {{ $index + 1 }}</mat-label>
+      <input matInput [formControlName]="$index" />
+      @if(address.invalid && (address.touched || address.dirty)) {
+      <mat-error>Address Line is required</mat-error>
+      } @if(addressLinesArray.length > 1) {
+      <button mat-icon-button type="button" (click)="removeAddressLine($index)">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+    }
+    <button
+      type="button"
+      class="btn btn-secondary btn-sm"
+      (click)="addAddressLine()"
+    >
+      Add Address Line
+    </button>
+  </div>
+  <mat-form-field class="col-6">
+    <mat-label>City</mat-label>
+    <input matInput formControlName="city" />
+    @if(cityInvalid) {
+    <mat-error>City is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>State</mat-label>
+    <input matInput formControlName="state" />
+    @if(stateInvalid) {
+    <mat-error>State is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>Postal Code</mat-label>
+    <input matInput formControlName="zip" />
+    @if(zipInvalid) {
+    <mat-error>Postal Code is required</mat-error>
+    }
+  </mat-form-field>
+</div>

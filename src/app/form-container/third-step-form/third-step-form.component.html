@@ -1,0 +1,37 @@
+<div class="mt-3">
+  <h5>Personal Details</h5>
+  <ul class="list-group mb-3">
+    <li class="list-group-item">
+      <strong>First Name:</strong>
+      {{ summaryStepGroup.value.personal?.firstName }}
+    </li>
+    <li class="list-group-item">
+      <strong>Last Name:</strong>
+      {{ summaryStepGroup.value.personal?.lastName }}
+    </li>
+    <li class="list-group-item">
+      <strong>Email:</strong> {{ summaryStepGroup.value.personal?.email }}
+    </li>
+    <li class="list-group-item">
+      <strong>Phone Number:</strong>
+      {{ summaryStepGroup.value.personal?.phoneNumber }}
+    </li>
+  </ul>
+  <h5>Address Details</h5>
+  <ul class="list-group mb-3">
+    <li class="list-group-item">
+      <strong>Address:</strong>
+      {{ summaryStepGroup.value.address?.addressLines?.join(", ") }}
+    </li>
+    <li class="list-group-item">
+      <strong>City:</strong> {{ summaryStepGroup.value.address?.city }}
+    </li>
+    <li class="list-group-item">
+      <strong>State:</strong> {{ summaryStepGroup.value.address?.state }}
+    </li>
+    <li class="list-group-item">
+      <strong>Postal Code:</strong>
+      {{ summaryStepGroup.value.address?.zip }}
+    </li>
+  </ul>
+</div>

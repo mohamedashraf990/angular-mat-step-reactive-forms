@@ -1,0 +1,54 @@
+<div>
+  <form [formGroup]="mainForm" (ngSubmit)="onSubmit()">
+    <mat-stepper linear>
+      <div class="container mt-5">
+        <mat-step label="Personal Details" [stepControl]="personalGroup">
+          <app-first-step-form
+            [personalgroup]="personalGroup"
+          ></app-first-step-form>
+          <div class="row justify-content-start">
+            <button
+              matStepperNext
+              [disabled]="personalFormInvalid"
+              class="btn btn-primary col-2 mt-3"
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+        </mat-step>
+        <mat-step label="Address Details" [stepControl]="addressGroup">
+          <app-second-step-form
+            [addressGroup]="addressGroup"
+          ></app-second-step-form>
+          <div class="row justify-content-between">
+            <button matStepperPrevious class="btn btn-secondary col-2 mt-3">
+              Back
+            </button>
+            <button
+              [disabled]="addressFormInvalid"
+              matStepperNext
+              class="btn btn-primary col-2 mt-3"
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+        </mat-step>
+        <mat-step label="Review & Submit">
+          <app-third-step-form
+            [summaryStepGroup]="mainForm"
+          ></app-third-step-form>
+          <div class="row justify-content-between">
+            <button matStepperPrevious class="btn btn-secondary col-2 mt-3">
+              Back
+            </button>
+            <button type="submit" class="btn btn-success col-2 mt-3">
+              Submit
+            </button>
+          </div>
+        </mat-step>
+      </div>
+    </mat-stepper>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="row mt-3" [formGroup]="personalgroup">
+  <mat-form-field class="col-6">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName" required />
+    @if(firstNameInvalid) {
+    <mat-error>First Name is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" required />
+    @if(lastNameInvalid) {
+    <mat-error>Last Name is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" required />
+    @if(emailInvalid) {
+    <mat-error>Email is required and must be valid</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field class="col-6">
+    <mat-label>Phone Number</mat-label>
+    <input matInput formControlName="phoneNumber" required />
+    @if(phoneInvalid) {
+    <mat-error>Phone Number is required and must be 11 digits</mat-error>
+    }
+  </mat-form-field>
+</div>
